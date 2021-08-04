@@ -1,0 +1,15 @@
+.container-header{
+    width: 100%;
+    height: 30%;
+    background-color: red;
+}
+.container-survey{
+    width: 100%;
+    height: 60%;
+    background-color: red;
+}
+.container-footer{
+    width: 100%;
+    height: 10%;
+    background-color: red;
+}
