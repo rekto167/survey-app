@@ -1,7 +1,7 @@
 @extends('layouts-survey/main-survey')
 @section('title','Survey Kepuasan Pelanggan')
 @section('body-survey')
-    
+
 {{-- header survey start --}}
 <body style="background-color: #01192b;">
 <div class="row bg-white">

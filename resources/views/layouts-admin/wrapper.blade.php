@@ -74,7 +74,7 @@
 
             <!-- Sidebar Message -->
             <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="sb-admin/img/undraw_rocket.svg" alt="...">
+                <img class="sidebar-card-illustration mb-2" src="{{ asset('sb-admin/img/undraw_rocket.svg') }}" alt="...">
                 <p class="text-center mb-2"><strong>SKP</strong> is Develope by Shifthink!</p>
                 <a class="btn btn-success btn-sm" href="https://shifthink.id/">Go to Shifthink!</a>
             </div>
@@ -105,7 +105,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                                 <img class="img-profile rounded-circle"
-                                    src="sb-admin/img/undraw_profile.svg">
+                                    src="{{ asset('sb-admin/img/undraw_profile.svg') }}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

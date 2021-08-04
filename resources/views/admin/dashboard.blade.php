@@ -1,4 +1,4 @@
-@extends('layouts-admin/main-admin') 
+@extends('layouts-admin/main-admin')
 @section('title', 'Dashboard Admin')
 @section('content')
     <!-- Page Heading -->
@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-body">
                 <h1 class="h3 mb-0 text-gray-800">Survey Minggu Ini</h1>
-                
+
             </div>
         </div>
     </div>
