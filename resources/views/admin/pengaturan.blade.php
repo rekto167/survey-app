@@ -21,14 +21,16 @@
                       </tr>
                     </thead>
                     <tbody>
+                      @foreach ($surveys as $survey)
                       <tr>
-                        <th scope="row">Kementrian Kemenkumham</th>
-                        <td>Jalan Pemasyarakatan Nomor 004 Kec. Rumbai Kota Pekanbaru 28264
+                        <th scope="row">{{ $survey->nama_instansi }}</th>
+                        <td>{{ $survey->alamat_instansi }}
                         </td>
                         <td>
-                            <a href="" class="btn btn-success badge">Ubah</a>
+                            <a href="/pengaturan/ubah/{{ $survey->id }}" class="btn btn-success badge">Ubah</a>
                         </td>
                       </tr>
+                      @endforeach
                     </tbody>
                   </table>
             </div>
