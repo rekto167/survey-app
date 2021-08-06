@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -29,9 +29,7 @@ Bagian admin :
  - Mengatur judul header, logo header, banner static dan banner running text pada survey
  - Mencetak laporan berdasarkan chart bulanan, mingguan, tahunan, berbentuk excel
 */
-Route::get('/dashboard', function (){
-    return view('admin/dashboard');
-});
+Route::get('/dashboard', [SurveyController::class, 'dashboard']);
 
 Route::get('/pengaturan', [SurveyController::class, 'index']);
 Route::get('/pengaturan/tambah', [SurveyController::class, 'create']);

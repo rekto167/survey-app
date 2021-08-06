@@ -18,6 +18,11 @@ class SurveyController extends Controller
         return view('admin.pengaturan', compact('surveys'));
     }
 
+    public function dashboard()
+    {
+        return view('admin.dashboard');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

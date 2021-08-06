@@ -1,4 +1,4 @@
-@extends('layouts-admin/main-admin')
+@extends('layouts-admin.main')
 @section('title', 'Ubah')
 @section('content')
     <!-- Page Heading -->
