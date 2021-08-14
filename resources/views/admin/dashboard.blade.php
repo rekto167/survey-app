@@ -10,7 +10,7 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <canvas id="myChart" width="400" height="400"></canvas>
+            <canvas id="myChart" width="25" height="25"></canvas>
         </div>
     </div>
 </div>
@@ -18,31 +18,74 @@
     <script src="{{ asset('charts/chart.min.js') }}"></script>
     <script>
     var ctx = document.getElementById('myChart').getContext('2d');
+    var dataEmotSatu = {!! json_encode($dataEmotSatu) !!};
+    var dataEmotDua = {!! json_encode($dataEmotDua) !!};
+    var dataEmotTiga = {!! json_encode($dataEmotTiga) !!};
+    var dataEmotEmpat = {!! json_encode($dataEmotEmpat) !!};
+    var dataEmotLima = {!! json_encode($dataEmotLima) !!};
+    var days = {!! json_encode($days) !!};
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+            labels: days,
+            datasets: [
+            {
+                label: 'Emot Sangat Buruk',
+                data: dataEmotSatu,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
+                    'rgba(153, 0, 87, 132)',
                 ],
                 borderWidth: 1
-            }]
+            },
+            {
+                label: 'Emot Buruk',
+                data: dataEmotDua,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 0, 0, 1)',
+                ],
+                borderWidth: 1
+            },
+            {
+                label: 'Emot Sedang',
+                data: dataEmotTiga,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 173, 0, 132)',
+                ],
+                borderWidth: 1
+            },
+            {
+                label: 'Emot Bagus',
+                data: dataEmotEmpat,
+                backgroundColor: [
+                    'rgba(0, 255, 255, 0.5)',
+                ],
+                borderColor: [
+                    'rgba(0, 255, 255, 1)',
+                ],
+                borderWidth: 1
+            },
+            {
+                label: 'Emot Sangat Bagus',
+                data: dataEmotLima,
+                backgroundColor: [
+                    'rgba(0, 255, 13, 0.5)',
+                ],
+                borderColor: [
+                    'rgba(0, 255, 13, 1)',
+                ],
+                borderWidth: 1
+            },
+
+        ]
         },
         options: {
             scales: {
@@ -53,5 +96,6 @@
         }
     });
     </script>
+
 @endpush
 @endsection

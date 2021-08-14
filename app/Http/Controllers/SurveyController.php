@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Survey;
+use App\Models\Report;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 
 class SurveyController extends Controller
 {
@@ -20,7 +23,35 @@ class SurveyController extends Controller
 
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $reports = Report::all();
+        $now = Carbon::now();
+        $weekStartDate = $now->startOfWeek()->format('Y-m-d');
+        $weekEndDate = $now->endOfWeek()->format('Y-m-d');
+        $periodMingguan = CarbonPeriod::create($weekStartDate, $weekEndDate);
+        $days = [];
+        $datas = [];
+        foreach($periodMingguan as $tampilkanHariMingguan){
+            $days[] = $tampilkanHariMingguan->format('Y-m-d');
+        }
+        foreach($days as $day){
+            $datas[] = Report::orderBy('created_at')->where('created_at', 'like', $day . '%')->get();
+        }
+        $dataEmotSatu = [];
+        $dataEmotDua = [];
+        $dataEmotTiga = [];
+        $dataEmotEmpat = [];
+        $dataEmotLima = [];
+        foreach($datas as $data){
+            $dataEmotSatu[] = $data->sum('emot1');
+            $dataEmotDua[] = $data->sum('emot2');
+            $dataEmotTiga[] = $data->sum('emot3');
+            $dataEmotEmpat[] = $data->sum('emot4');
+            $dataEmotLima[] = $data->sum('emot5');
+        }
+
+        // $start = $now->startOfWeek(Carbon::MONDAY);
+        // $end = $now->endOfWeek(Carbon::FRIDAY);
+        return view('admin.dashboard', compact('reports', 'datas', 'dataEmotSatu', 'dataEmotDua', 'dataEmotTiga', 'dataEmotEmpat', 'dataEmotLima', 'days', 'periodMingguan'));
     }
 
     /**
