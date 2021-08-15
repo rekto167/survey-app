@@ -4,7 +4,7 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+    <a href="#" onclick="downloadImage();" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="generateChart"><i
             class="fas fa-download fa-sm text-white-50"></i> Generate This Chart</a>
 </div>
 <div class="container">
@@ -95,6 +95,19 @@
             }
         }
     });
+    function downloadImage(){
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+
+        today = mm + '/' + dd + '/' + yyyy;
+
+        let generateChart = document.querySelector('#generateChart');
+        generateChart.href = myChart.toBase64Image();
+        generateChart.download =`${today}.jpg`;
+        generateChart.click();
+    }
     </script>
 
 @endpush
