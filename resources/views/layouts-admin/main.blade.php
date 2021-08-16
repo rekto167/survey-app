@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('sb-admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
 </head>
 
@@ -47,7 +48,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Powered by<br><img src="{{ asset('logo/logo_shifthink.png') }}" alt="" srcset="" style="width:75px"></span>
                     </div>
                 </div>
             </footer>
@@ -94,6 +95,8 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('sb-admin/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('sb-admin/js/demo/chart-pie-demo.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
     @stack('javascript-tambahan')
 
 </body>

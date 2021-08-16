@@ -1,15 +1,25 @@
 @extends('layouts-admin.main')
-@section('title', 'Dashboard')
+@section('title', 'Chart Mingguan')
 @section('content')
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    <h1 class="h3 mb-0 text-gray-800">@yield('title')</h1>
     <a href="#" onclick="downloadImage();" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="generateChart"><i
             class="fas fa-download fa-sm text-white-50"></i> Generate This Chart</a>
 </div>
 <div class="container">
     <div class="card">
         <div class="card-body">
+            <div class="row">
+                <div class="col-sm-5">
+                    <select class="form-select" aria-label="Default select example" onchange="window.location.href=this.value;">
+                        <option >Open this select menu</option>
+                        <option value="{{ url('/chart') }}" selected>Mingguan</option>
+                        <option value="{{ url('/chart/bulanan') }}">Bulanan</option>
+                        <option value="{{ url('/chart/tahunan') }}">Tahunan</option>
+                    </select>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-sm-12">
                     <canvas id="myChart" style="width:500px"></canvas>
@@ -109,7 +119,7 @@
 
         let generateChart = document.querySelector('#generateChart');
         generateChart.href = myChart.toBase64Image();
-        generateChart.download =`${today}.png`;
+        generateChart.download =`Mingguan-${today}.png`;
         // generateChart.click();
     }
     </script>

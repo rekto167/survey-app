@@ -48,12 +48,8 @@ class SurveyController extends Controller
             $dataEmotEmpat[] = $data->sum('emot4');
             $dataEmotLima[] = $data->sum('emot5');
         }
-
-        // $start = $now->startOfWeek(Carbon::MONDAY);
-        // $end = $now->endOfWeek(Carbon::FRIDAY);
         return view('admin.dashboard', compact('reports', 'datas', 'dataEmotSatu', 'dataEmotDua', 'dataEmotTiga', 'dataEmotEmpat', 'dataEmotLima', 'days', 'periodMingguan'));
     }
-
     /**
      * Show the form for creating a new resource.
      *

@@ -61,7 +61,7 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="/charts">
+        <a class="nav-link" href="{{ url('chart') }}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Charts</span></a>
     </li>
@@ -71,7 +71,7 @@
     <!-- Sidebar Message -->
     <div class="sidebar-card d-none d-lg-flex">
         <p class="text-center mb-2"><strong>SKP</strong> is develope by </p>
-        <a class="btn btn-success btn-sm" href="https://shifthink.id/">Shifthink</a>
+        <a class="" target="_blank" href="https://shifthink.id/"><img src="{{ asset('logo/logo_shifthink.png') }}" alt="" srcset="" style="width:7em"></a>
     </div>
 
 </ul>

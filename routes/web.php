@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\SurveyController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,9 @@ Bagian admin :
  - Mencetak laporan berdasarkan chart bulanan, mingguan, tahunan, berbentuk excel
 */
 Route::get('/dashboard', [SurveyController::class, 'dashboard']);
+Route::get('/chart', [ChartsController::class, 'index']);
+Route::get('/chart/bulanan', [ChartsController::class, 'bulanan']);
+Route::get('/chart/tahunan', [ChartsController::class, 'tahunan']);
 
 Route::get('/pengaturan', [SurveyController::class, 'index']);
 Route::get('/pengaturan/tambah', [SurveyController::class, 'create']);
