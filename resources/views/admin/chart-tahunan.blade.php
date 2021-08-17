@@ -22,7 +22,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <canvas id="myChart" width="400" height="400"></canvas>
+                    <canvas id="myChart" style="widht:500px"></canvas>
                 </div>
             </div>
         </div>
@@ -32,20 +32,20 @@
     <script src="{{ asset('charts/chart.min.js') }}"></script>
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
-        var dataBulanEmotSatu = {!! json_encode($dataBulanEmotSatu) !!};
-        var dataBulanEmotDua = {!! json_encode($dataBulanEmotDua) !!};
-        var dataBulanEmotTiga = {!! json_encode($dataBulanEmotTiga) !!};
-        var dataBulanEmotEmpat = {!! json_encode($dataBulanEmotEmpat) !!};
-        var dataBulanEmotLima = {!! json_encode($dataBulanEmotLima) !!};
-        var tampungHariBulan = {!! json_encode($tampungHariBulan) !!};
+        var dataMonthem1 = {!! json_encode($dataMonthem1) !!};
+        var dataMonthem2 = {!! json_encode($dataMonthem2) !!};
+        var dataMonthem3 = {!! json_encode($dataMonthem3) !!};
+        var dataMonthem4 = {!! json_encode($dataMonthem4) !!};
+        var dataMonthem5 = {!! json_encode($dataMonthem5) !!};
+        var month = {!! json_encode($month) !!};
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: tampungHariBulan,
+                labels: month,
                 datasets: [
                 {
                     label: 'Emot Sangat Buruk',
-                    data: dataBulanEmotSatu,
+                    data: dataMonthem1,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                     ],
@@ -56,7 +56,7 @@
                 },
                 {
                     label: 'Emot Buruk',
-                    data: dataBulanEmotDua,
+                    data: dataMonthem2,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                     ],
@@ -67,7 +67,7 @@
                 },
                 {
                     label: 'Emot Sedang',
-                    data: dataBulanEmotTiga,
+                    data: dataMonthem3,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                     ],
@@ -78,7 +78,7 @@
                 },
                 {
                     label: 'Emot Bagus',
-                    data: dataBulanEmotEmpat,
+                    data: dataMonthem4,
                     backgroundColor: [
                         'rgba(0, 255, 255, 0.5)',
                     ],
@@ -89,7 +89,7 @@
                 },
                 {
                     label: 'Emot Sangat Bagus',
-                    data: dataBulanEmotLima,
+                    data: dataMonthem5,
                     backgroundColor: [
                         'rgba(0, 255, 114, .5)',
                     ],

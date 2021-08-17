@@ -69,34 +69,30 @@ class ChartsController extends Controller
     }
 
     public function tahunan(){
-        $now = Carbon::now();
-        $awalBulan = $now->startOfMonth()->format('Y-m-d');
-        $akhirBulan = $now->endOfMonth()->format('Y-m-d');
-
-        $rangeBulan = CarbonPeriod::create($awalBulan, $akhirBulan);
-
-        $tampungHariBulan=[];
-        foreach($rangeBulan as $rb){
-            $tampungHariBulan[] =$rb->format('Y-m-d');
+        $month = [];
+        $monthNumber = [];
+        for ($m=1; $m<=12; $m++) {
+             $month[] = date('F', mktime(0,0,0,$m, 1, date('Y')));
+             $monthNumber[] = date('m', mktime(0,0,0,$m, 1, date('Y')));
         }
-
-        $dataBulan=[];
-        foreach($tampungHariBulan as $thb){
-            $dataBulan[]=Report::orderBy('created_at')->where('created_at', 'like', $thb.'%')->get();
+        $dataMonthem1 = [];
+        $dataMonthem2 = [];
+        $dataMonthem3 = [];
+        $dataMonthem4 = [];
+        $dataMonthem5 = [];
+        foreach($monthNumber as $mn){
+            $bulan = (int)$mn;
+            $dataMonthem1[]=Report::whereYear('created_at', 'like', now()->year)
+                                ->whereMonth('created_at', '=', $bulan)->get('emot1')->sum('emot1');
+            $dataMonthem2[]=Report::whereYear('created_at', 'like', now()->year)
+            ->whereMonth('created_at', '=', $bulan)->get('emot2')->sum('emot2');
+            $dataMonthem3[]=Report::whereYear('created_at', 'like', now()->year)
+            ->whereMonth('created_at', '=', $bulan)->get('emot3')->sum('emot3');
+            $dataMonthem4[]=Report::whereYear('created_at', 'like', now()->year)
+            ->whereMonth('created_at', '=', $bulan)->get('emot4')->sum('emot4');
+            $dataMonthem5[]=Report::whereYear('created_at', 'like', now()->year)
+            ->whereMonth('created_at', '=', $bulan)->get('emot5')->sum('emot5');
         }
-        $dataBulanEmotSatu=[];
-        $dataBulanEmotDua=[];
-        $dataBulanEmotTiga=[];
-        $dataBulanEmotEmpat=[];
-        $dataBulanEmotLima=[];
-        foreach($dataBulan as $db){
-            $dataBulanEmotSatu[]=$db->sum('emot1');
-            $dataBulanEmotDua[]=$db->sum('emot2');
-            $dataBulanEmotTiga[]=$db->sum('emot3');
-            $dataBulanEmotEmpat[]=$db->sum('emot4');
-            $dataBulanEmotLima[]=$db->sum('emot5');
-        }
-        // dd($dataBulanEmotSatu);
-        return view('admin.chart-tahunan', compact('tampungHariBulan', 'dataBulanEmotSatu', 'dataBulanEmotDua', 'dataBulanEmotTiga', 'dataBulanEmotEmpat', 'dataBulanEmotLima'));
+        return view('admin.chart-tahunan', compact('dataMonthem1','dataMonthem2', 'dataMonthem3', 'dataMonthem4', 'dataMonthem5', 'month'));
     }
 }
