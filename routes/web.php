@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\PersonalisesController;
 use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\SurveyController;
 use Illuminate\Support\Facades\Route;
@@ -46,3 +47,7 @@ Route::get('/emot2', [ReportsController::class, 'getValue']);
 Route::get('/emot3', [ReportsController::class, 'getValue']);
 Route::get('/emot4', [ReportsController::class, 'getValue']);
 Route::get('/emot5', [ReportsController::class, 'getValue']);
+
+// personalises
+Route::geT('/personalisasi', [PersonalisesController::class, 'index']);
+Route::get('/personalisasi/tambah', [PersonalisesController::class, 'create']);
