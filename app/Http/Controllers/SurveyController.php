@@ -258,8 +258,10 @@ class SurveyController extends Controller
      * @param  \App\Models\Survey  $survey
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Survey $survey)
+    public function destroy(Survey $survey, $id)
     {
-        //
+        $data = Survey::where('id', $id);
+        $data->delete();
+        return redirect('/pengaturan');
     }
 }

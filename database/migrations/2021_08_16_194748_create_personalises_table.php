@@ -15,9 +15,9 @@ class CreatePersonalisesTable extends Migration
     {
         Schema::create('personalises', function (Blueprint $table) {
             $table->id();
-            $table->string('warna-banner-atas')->nullable();
-            $table->string('warna-background')->nullable();
-            $table->string('warna-banner-runningtext')->nullable();
+            $table->string('warna_banner_atas')->nullable();
+            $table->string('warna_background')->nullable();
+            $table->string('warna_banner_runningtext')->nullable();
             $table->timestamps();
         });
     }

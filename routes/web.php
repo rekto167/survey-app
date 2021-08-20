@@ -41,6 +41,7 @@ Route::get('/pengaturan/tambah', [SurveyController::class, 'create']);
 Route::post('/pengaturan/tambah', [SurveyController::class, 'store']);
 Route::get('/pengaturan/ubah/{survey}', [SurveyController::class, 'edit']);
 Route::post('/pengaturan/ubah/{survey}', [SurveyController::class, 'update']);
+Route::get('/pengaturan/hapus/{id}', [SurveyController::class, 'destroy']);
 
 Route::get('/emot1', [ReportsController::class, 'getvalue']);
 Route::get('/emot2', [ReportsController::class, 'getValue']);
@@ -49,5 +50,9 @@ Route::get('/emot4', [ReportsController::class, 'getValue']);
 Route::get('/emot5', [ReportsController::class, 'getValue']);
 
 // personalises
-Route::geT('/personalisasi', [PersonalisesController::class, 'index']);
+Route::get('/personalisasi', [PersonalisesController::class, 'index']);
 Route::get('/personalisasi/tambah', [PersonalisesController::class, 'create']);
+Route::post('/personalisasi/tambah', [PersonalisesController::class, 'store']);
+Route::get('/personalisasi/ubah/{id}', [PersonalisesController::class, 'edit']);
+Route::post('/personalisasi/ubah/{id}', [PersonalisesController::class, 'update']);
+Route::get('/personalisasi/hapus/{id}', [PersonalisesController::class, 'destroy']);

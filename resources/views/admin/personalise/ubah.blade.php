@@ -1,5 +1,5 @@
 @extends('layouts-admin/main')
-@section('title', 'Tambah Personalisasi')
+@section('title', 'Ubah Personalisasi')
 @section('content')
     <!-- Page Heading -->
     @push('css-tambahan')
@@ -11,22 +11,22 @@
     <div class="container">
       <div class="card">
         <div class="card-body">
-          <form method="post" action="/personalisasi/tambah" enctype="multipart/form-data">
+          <form method="post" action="/personalisasi/ubah/{{ $personalises->id }}" enctype="multipart/form-data">
             @csrf
             <div class="row demo" id="warna">
                 <div class="col-xs-12 demo form-group">
                     <label for="warna_banner_atas" class="control-label">Warna Banner Atas</label>
-                    <input type="text" class="colorpicker form-control" id=""warna_banner_atas" name="warna_banner_atas">
+                    <input type="text" class="colorpicker form-control" id=""warna_banner_atas" name="warna_banner_atas" value="{{ $personalises->warna_banner_atas }}">
                     <p class="help-block"></p>
                 </div>
                 <div class="col-xs-12 demo form-group">
                   <label for="warna_background" class="control-label">Background</label>
-                  <input type="text" class="colorpicker form-control" id="warna_background" name="warna_background">
+                  <input type="text" class="colorpicker form-control" id="warna_background" name="warna_background" value="{{ $personalises->warna_background }}">
                   <p class="help-block"></p>
                  </div>
                  <div class="col-xs-12 demo form-group">
                     <label for="warna_banner_runningtext" class="control-label">Warna Banner Running Text</label>
-                    <input type="text" class="colorpicker form-control" id="warna_banner_runningtext" name="warna_banner_runningtext">
+                    <input type="text" class="colorpicker form-control" id="warna_banner_runningtext" name="warna_banner_runningtext" value="{{ $personalises->warna_banner_runningtext }}">
                     <p class="help-block"></p>
                 </div>
             </div>

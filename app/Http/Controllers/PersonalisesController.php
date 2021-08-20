@@ -36,7 +36,12 @@ class PersonalisesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $personalise = new Personalise;
+        $personalise->warna_banner_atas = $request->warna_banner_atas;
+        $personalise->warna_background = $request->warna_background;
+        $personalise->warna_banner_runningtext = $request->warna_banner_runningtext;
+        $personalise->save();
+        return redirect('/personalisasi')->with('success', 'Add Personalisasi Succesfully!');
     }
 
     /**
@@ -56,9 +61,10 @@ class PersonalisesController extends Controller
      * @param  \App\Models\Personalise  $personalise
      * @return \Illuminate\Http\Response
      */
-    public function edit(Personalise $personalise)
+    public function edit(Personalise $personalise, $id)
     {
-        //
+        $personalises = Personalise::find($id);
+        return view('admin.personalise.ubah', compact('personalises'));
     }
 
     /**
@@ -68,9 +74,15 @@ class PersonalisesController extends Controller
      * @param  \App\Models\Personalise  $personalise
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Personalise $personalise)
+    public function update(Request $request, $id)
     {
-        //
+        $personalise = Personalise::find($id);
+        $personalise->warna_banner_atas = $request->warna_banner_atas;
+        $personalise->warna_background = $request->warna_background;
+        $personalise->warna_banner_runningtext = $request->warna_banner_runningtext;
+
+        $personalise->save();
+        return redirect('/personalisasi');
     }
 
     /**
@@ -79,8 +91,10 @@ class PersonalisesController extends Controller
      * @param  \App\Models\Personalise  $personalise
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Personalise $personalise)
+    public function destroy(Personalise $personalise, $id)
     {
-        //
+        $data = Personalise::where('id', $id);
+        $data->delete();
+        return redirect('/personalisasi');
     }
 }

@@ -28,6 +28,7 @@
                         </td>
                         <td>
                             <a href="/pengaturan/ubah/{{ $survey->id }}" class="btn btn-success badge">Ubah</a>
+                            <a href="/pengaturan/hapus/{{ $survey->id }}" class="btn btn-danger badge">Hapus</a>
                         </td>
                       </tr>
                       @endforeach

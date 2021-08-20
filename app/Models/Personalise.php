@@ -9,8 +9,8 @@ class Personalise extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'warna-banner-atas',
-        'warna-background',
-        'warna-banner-runningtext'
+        'warna_banner_atas',
+        'warna_background',
+        'warna_banner_runningtext'
     ];
 }
