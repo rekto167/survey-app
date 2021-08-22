@@ -23,7 +23,6 @@ class CreateSurveysTable extends Migration
             $table->string('emot_2')->nullable();
             $table->string('emot_3')->nullable();
             $table->string('emot_4')->nullable();
-            $table->string('emot_5')->nullable();
             $table->string('banner_static');
             $table->string('running_text');
             $table->timestamps();

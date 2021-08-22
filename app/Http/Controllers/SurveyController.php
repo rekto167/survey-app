@@ -40,13 +40,11 @@ class SurveyController extends Controller
         $dataEmotDua = [];
         $dataEmotTiga = [];
         $dataEmotEmpat = [];
-        $dataEmotLima = [];
         foreach($datas as $data){
             $dataEmotSatu[] = $data->sum('emot1');
             $dataEmotDua[] = $data->sum('emot2');
             $dataEmotTiga[] = $data->sum('emot3');
             $dataEmotEmpat[] = $data->sum('emot4');
-            $dataEmotLima[] = $data->sum('emot5');
         }
         return view('admin.dashboard', compact('reports', 'datas', 'dataEmotSatu', 'dataEmotDua', 'dataEmotTiga', 'dataEmotEmpat', 'dataEmotLima', 'days', 'periodMingguan'));
     }
@@ -78,7 +76,6 @@ class SurveyController extends Controller
             'emot_2' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'emot_3' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'emot_4' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'emot_5' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'banner_static' => 'required',
             'running_text' => 'required',
         ]);
@@ -125,13 +122,6 @@ class SurveyController extends Controller
             $pmEmotEmpat = date('YmdhHis'). "emot_4".".".$emotempat->getClientOriginalExtension() ;
             $emotempat->move($destPathEmotEmpat, $pmEmotEmpat);
             $input['emot_4'] = "$pmEmotEmpat";
-        }
-        if ($emotlima = $request->file('emot_5'))
-        {
-            $destPathEmotLima = 'image/';
-            $pmEmotLima = date('YmdhHis'). "emot_5".".".$emotlima->getClientOriginalExtension() ;
-            $emotlima->move($destPathEmotLima, $pmEmotLima);
-            $input['emot_5'] = "$pmEmotLima";
         }
         Survey::create($input);
         return redirect('/pengaturan')->with('success', 'Add Profile Survey Successfully');
@@ -235,16 +225,6 @@ class SurveyController extends Controller
         } else
         {
             unset($input['emot_4']);
-        }
-        if ($emotlima = $request->file('emot_5'))
-        {
-            $destPathEmotLima = 'image/';
-            $pmEmotLima = date('YmdhHis')."emot_5".".".$emotlima->getClientOriginalExtension();
-            $emotlima->move($destPathEmotLima, $pmEmotLima);
-            $input['emot_5'] = "$pmEmotLima";
-        } else
-        {
-            unset($input['emot_5']);
         }
 
         $survey->update($input);

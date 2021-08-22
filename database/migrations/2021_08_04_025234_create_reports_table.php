@@ -19,7 +19,6 @@ class CreateReportsTable extends Migration
             $table->integer('emot2')->default(0);
             $table->integer('emot3')->default(0);
             $table->integer('emot4')->default(0);
-            $table->integer('emot5')->default(0);
             $table->timestamps();
         });
     }

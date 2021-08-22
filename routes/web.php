@@ -47,7 +47,6 @@ Route::get('/emot1', [ReportsController::class, 'getvalue']);
 Route::get('/emot2', [ReportsController::class, 'getValue']);
 Route::get('/emot3', [ReportsController::class, 'getValue']);
 Route::get('/emot4', [ReportsController::class, 'getValue']);
-Route::get('/emot5', [ReportsController::class, 'getValue']);
 
 // personalises
 Route::get('/personalisasi', [PersonalisesController::class, 'index']);

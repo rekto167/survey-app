@@ -22,7 +22,6 @@ class ReportsController extends Controller
             'emot2' => $request->emot2 ?? [0],
             'emot3' => $request->emot3 ?? [0],
             'emot4' => $request->emot4 ?? [0],
-            'emot5' => $request->emot5 ?? [0],
         ]);
         return ['message' => 'data sudah masuk'];
     }

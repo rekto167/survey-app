@@ -36,7 +36,6 @@
         var dataMonthem2 = {!! json_encode($dataMonthem2) !!};
         var dataMonthem3 = {!! json_encode($dataMonthem3) !!};
         var dataMonthem4 = {!! json_encode($dataMonthem4) !!};
-        var dataMonthem5 = {!! json_encode($dataMonthem5) !!};
         var month = {!! json_encode($month) !!};
         var myChart = new Chart(ctx, {
             type: 'bar',
@@ -44,7 +43,7 @@
                 labels: month,
                 datasets: [
                 {
-                    label: 'Emot Sangat Buruk',
+                    label: 'Tidak Puas',
                     data: dataMonthem1,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -55,7 +54,7 @@
                     borderWidth: 1
                 },
                 {
-                    label: 'Emot Buruk',
+                    label: 'Kurang Puas',
                     data: dataMonthem2,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -66,7 +65,7 @@
                     borderWidth: 1
                 },
                 {
-                    label: 'Emot Sedang',
+                    label: 'Puas',
                     data: dataMonthem3,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -77,7 +76,7 @@
                     borderWidth: 1
                 },
                 {
-                    label: 'Emot Bagus',
+                    label: 'Sangat Puas',
                     data: dataMonthem4,
                     backgroundColor: [
                         'rgba(0, 255, 255, 0.5)',
@@ -87,18 +86,6 @@
                     ],
                     borderWidth: 1
                 },
-                {
-                    label: 'Emot Sangat Bagus',
-                    data: dataMonthem5,
-                    backgroundColor: [
-                        'rgba(0, 255, 114, .5)',
-                    ],
-                    borderColor: [
-                        'rgba(0, 255, 13, 1)',
-                    ],
-                    borderWidth: 1
-                },
-
             ]
             },
             options: {

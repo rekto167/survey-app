@@ -48,9 +48,6 @@
           <div class="col-sm-2">
             <img src="emoji/4.png" alt="" srcset="" class="img-fluid img-thumbnail" style="width:25vh;height:25vh;cursor:pointer" id="emot4">
           </div>
-          <div class="col-sm-2">
-            <img src="emoji/5.png" alt="" srcset="" class="img-fluid img-thumbnail" style="width:25vh;height:25vh;cursor:pointer" id="emot5">
-          </div>
         </div>
       </div>
       {{-- emoji end --}}

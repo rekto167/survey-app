@@ -37,7 +37,6 @@
         var data2 = {!! json_encode($data2) !!};
         var data3 = {!! json_encode($data3) !!};
         var data4 = {!! json_encode($data4) !!};
-        var data5 = {!! json_encode($data5) !!};
         var resultweek = Object.keys(weeks).map((key)=>[Number(key), weeks[key]]);
         var myChart = new Chart(ctx, {
             type: 'bar',
@@ -46,7 +45,7 @@
                 labels: resultweek,
                 datasets: [
                 {
-                    label: 'Emot Sangat Buruk',
+                    label: 'Tidak Puas',
                     data: data1,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -60,7 +59,7 @@
 
                 },
                 {
-                    label: 'Emot Buruk',
+                    label: 'Kurang Puas',
                     data: data2,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -74,7 +73,7 @@
 
                 },
                 {
-                    label: 'Emot Sedang',
+                    label: 'Puas',
                     data: data3,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -88,7 +87,7 @@
 
                 },
                 {
-                    label: 'Emot Bagus',
+                    label: 'Sangat Puas',
                     data: data4,
                     backgroundColor: [
                         'rgba(0, 255, 255, 0.5)',
@@ -101,20 +100,6 @@
                     fill:true
 
                 },
-                {
-                    label: 'Emot Sangat Bagus',
-                    data: data5,
-                    backgroundColor: [
-                        'rgba(0, 255, 114, .5)',
-                    ],
-                    borderColor: [
-                        'rgba(0, 255, 13, 1)',
-                    ],
-                    borderWidth: 1,
-                    tension:0.1,
-                    fill:true
-                },
-
             ]
         },
             options: {

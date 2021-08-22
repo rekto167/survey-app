@@ -26,7 +26,6 @@
     var dataEmotDua = {!! json_encode($dataEmotDua) !!};
     var dataEmotTiga = {!! json_encode($dataEmotTiga) !!};
     var dataEmotEmpat = {!! json_encode($dataEmotEmpat) !!};
-    var dataEmotLima = {!! json_encode($dataEmotLima) !!};
     var days = {!! json_encode($days) !!};
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -34,7 +33,7 @@
             labels: days,
             datasets: [
             {
-                label: 'Emot Sangat Buruk',
+                label: 'Tidak Puas',
                 data: dataEmotSatu,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -45,7 +44,7 @@
                 borderWidth: 1
             },
             {
-                label: 'Emot Buruk',
+                label: 'Kurang Puas',
                 data: dataEmotDua,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -56,7 +55,7 @@
                 borderWidth: 1
             },
             {
-                label: 'Emot Sedang',
+                label: 'Puas',
                 data: dataEmotTiga,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -67,7 +66,7 @@
                 borderWidth: 1
             },
             {
-                label: 'Emot Bagus',
+                label: 'Sangat Puas',
                 data: dataEmotEmpat,
                 backgroundColor: [
                     'rgba(0, 255, 255, 0.5)',
@@ -77,18 +76,6 @@
                 ],
                 borderWidth: 1
             },
-            {
-                label: 'Emot Sangat Bagus',
-                data: dataEmotLima,
-                backgroundColor: [
-                    'rgba(0, 255, 114, .5)',
-                ],
-                borderColor: [
-                    'rgba(0, 255, 13, 1)',
-                ],
-                borderWidth: 1
-            },
-
         ]
         },
         options: {

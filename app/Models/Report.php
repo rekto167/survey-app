@@ -9,6 +9,6 @@ class Report extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'emot1', 'emot2', 'emot3', 'emot4', 'emot5',
+        'emot1', 'emot2', 'emot3', 'emot4',
     ];
 }

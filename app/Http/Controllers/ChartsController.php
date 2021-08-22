@@ -34,7 +34,6 @@ class ChartsController extends Controller
             $dataEmotDua[] = $data->sum('emot2');
             $dataEmotTiga[] = $data->sum('emot3');
             $dataEmotEmpat[] = $data->sum('emot4');
-            $dataEmotLima[] = $data->sum('emot5');
         }
         return view('admin.charts', compact('reports', 'datas', 'dataEmotSatu', 'dataEmotDua', 'dataEmotTiga', 'dataEmotEmpat', 'dataEmotLima', 'days', 'periodBulanan'));
     }
@@ -49,7 +48,6 @@ class ChartsController extends Controller
         $data2=[];
         $data3=[];
         $data4=[];
-        $data5=[];
         foreach($weeks as $week){
             $data1[] =Report::whereBetween('created_at', [current($week), end($week)])->get('emot1')->sum('emot1');
         }
@@ -62,10 +60,7 @@ class ChartsController extends Controller
         foreach($weeks as $week){
             $data4[] =Report::whereBetween('created_at', [current($week), end($week)])->get('emot4')->sum('emot4');
         }
-        foreach($weeks as $week){
-            $data5[] =Report::whereBetween('created_at', [current($week), end($week)])->get('emot5')->sum('emot5');
-        }
-        return view('admin.chart-bulanan', compact('weeks', 'data1', 'data2', 'data3', 'data4', 'data5'));
+        return view('admin.chart-bulanan', compact('weeks', 'data1', 'data2', 'data3', 'data4'));
     }
 
     public function tahunan(){
@@ -79,7 +74,6 @@ class ChartsController extends Controller
         $dataMonthem2 = [];
         $dataMonthem3 = [];
         $dataMonthem4 = [];
-        $dataMonthem5 = [];
         foreach($monthNumber as $mn){
             $bulan = (int)$mn;
             $dataMonthem1[]=Report::whereYear('created_at', 'like', now()->year)
@@ -90,9 +84,7 @@ class ChartsController extends Controller
             ->whereMonth('created_at', '=', $bulan)->get('emot3')->sum('emot3');
             $dataMonthem4[]=Report::whereYear('created_at', 'like', now()->year)
             ->whereMonth('created_at', '=', $bulan)->get('emot4')->sum('emot4');
-            $dataMonthem5[]=Report::whereYear('created_at', 'like', now()->year)
-            ->whereMonth('created_at', '=', $bulan)->get('emot5')->sum('emot5');
         }
-        return view('admin.chart-tahunan', compact('dataMonthem1','dataMonthem2', 'dataMonthem3', 'dataMonthem4', 'dataMonthem5', 'month'));
+        return view('admin.chart-tahunan', compact('dataMonthem1','dataMonthem2', 'dataMonthem3', 'dataMonthem4', 'month'));
     }
 }
