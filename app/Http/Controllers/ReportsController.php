@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Report;
+use App\Exports\ExcelExport;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReportsController extends Controller
 {
@@ -13,7 +16,7 @@ class ReportsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getvalue(Request $request)
-    {   
+    {
         $report = Report::create([
             'emot1' => $request->emot1 ?? [0],
             'emot2' => $request->emot2 ?? [0],
@@ -93,5 +96,12 @@ class ReportsController extends Controller
     public function destroy(Report $report)
     {
         //
+    }
+
+    public function cetak(Report $report){
+        return Excel::download(new ExcelExport, 'coba.xlsx');
+    }
+    public function cetakmingguan(Report $report){
+        return view('admin.cetak.cetak-mingguan');
     }
 }
