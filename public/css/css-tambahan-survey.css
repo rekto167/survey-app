@@ -1,0 +1,12 @@
+#hexagon {
+    width: 0;
+    height: 0;
+    border-left: 45.6vw solid transparent;
+    border-right: 45.6vw solid transparent;
+    border-top: 5vw solid white;
+    border-radius: 5px 5px 0px 0px;
+}
+
+#running-text {
+    margin-top: 2.7vw;
+}

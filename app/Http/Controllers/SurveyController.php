@@ -46,7 +46,7 @@ class SurveyController extends Controller
             $dataEmotTiga[] = $data->sum('emot3');
             $dataEmotEmpat[] = $data->sum('emot4');
         }
-        return view('admin.dashboard', compact('reports', 'datas', 'dataEmotSatu', 'dataEmotDua', 'dataEmotTiga', 'dataEmotEmpat', 'dataEmotLima', 'days', 'periodMingguan'));
+        return view('admin.dashboard', compact('reports', 'datas', 'dataEmotSatu', 'dataEmotDua', 'dataEmotTiga', 'dataEmotEmpat', 'days', 'periodMingguan'));
     }
     /**
      * Show the form for creating a new resource.
