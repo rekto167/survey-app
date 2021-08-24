@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Report;
+use Carbon\CarbonPeriod;
 use App\Exports\ExcelExport;
 use Illuminate\Http\Request;
+use App\Exports\BulananExport;
+use App\Exports\TahunanExport;
+use App\Exports\MingguanExport;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -28,7 +33,7 @@ class ReportsController extends Controller
 
     public function index()
     {
-        //
+
     }
 
     /**
@@ -96,11 +101,34 @@ class ReportsController extends Controller
     {
         //
     }
-
-    public function cetak(Report $report){
-        return Excel::download(new ExcelExport, 'coba.xlsx');
-    }
-    public function cetakmingguan(Report $report){
+    public function mingguanindex(Report $report){
         return view('admin.cetak.cetak-mingguan');
+    }
+    public function bulananindex(Report $report){
+        return view('admin.cetak.cetak-bulanan');
+    }
+    public function tahunanindex(Report $report){
+        return view('admin.cetak.cetak-tahunan');
+    }
+    /*
+    ========EXPORT XLSX FORMAT============
+    =======1. MINGGUAN====================
+    =======2. BULANAN=====================
+    =======3. TAHUNAN====================
+    */
+    // Export XLSX Mingguan
+    public function cetakmingguanxlsx(Request $request){
+        $now = Carbon::now()->format('d-m-Y');
+        return Excel::download(new MingguanExport, "$now-mingguan.xlsx");
+    }
+    // Export XLSX Bulanan
+    public function cetakbulananxlsx(Request $request){
+        $now = Carbon::now()->format('d-m-Y');
+        return Excel::download(new BulananExport, "$now-bulanan.xlsx");
+    }
+    // Export XLSX Tahunan
+    public function cetaktahunanxlsx(Request $request){
+        $now = Carbon::now()->format('d-m-Y');
+        return Excel::download(new TahunanExport, "$now-tahunan.xlsx");
     }
 }

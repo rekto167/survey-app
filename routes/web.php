@@ -57,4 +57,5 @@ Route::post('/personalisasi/ubah/{id}', [PersonalisesController::class, 'update'
 Route::get('/personalisasi/hapus/{id}', [PersonalisesController::class, 'destroy']);
 
 Route::get('/cetak', [ReportsController::class, 'index']);
-Route::geT('/cetakmingguan', [ReportsController::class, 'cetakmingguan']);
+Route::get('/cetak/mingguan', [ReportsController::class, 'mingguanindex']);
+Route::get('/cetak/mingguan/cetakxlsx', [ReportsController::class, 'cetakmingguanxlsx']);
