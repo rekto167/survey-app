@@ -56,6 +56,16 @@ Route::get('/personalisasi/ubah/{id}', [PersonalisesController::class, 'edit']);
 Route::post('/personalisasi/ubah/{id}', [PersonalisesController::class, 'update']);
 Route::get('/personalisasi/hapus/{id}', [PersonalisesController::class, 'destroy']);
 
+// cetak mingguan
 Route::get('/cetak', [ReportsController::class, 'index']);
 Route::get('/cetak/mingguan', [ReportsController::class, 'mingguanindex']);
 Route::get('/cetak/mingguan/cetakxlsx', [ReportsController::class, 'cetakmingguanxlsx']);
+Route::get('/cetak/mingguan/cetakpdf', [ReportsController::class, 'cetakmingguanpdf']);
+// cetak bulanan
+Route::get('/cetak/bulanan', [ReportsController::class, 'bulananindex']);
+Route::get('/cetak/bulanan/cetakxlsx', [ReportsController::class, 'cetakbulananxlsx']);
+Route::get('/cetak/bulanan/cetakpdf', [ReportsController::class, 'cetakbulananpdf']);
+// cetak tahunan
+Route::get('/cetak/tahunan', [ReportsController::class, 'tahunanindex']);
+Route::get('/cetak/tahunan/cetakxlsx', [ReportsController::class, 'cetaktahunanxlsx']);
+Route::get('/cetak/tahunan/cetakpdf', [ReportsController::class, 'cetaktahunanpdf']);

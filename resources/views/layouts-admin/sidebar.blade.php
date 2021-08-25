@@ -62,8 +62,8 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Cetak Laporan:</h6>
                 <a class="collapse-item" href="/cetak/mingguan">Cetak Laporan Mingguan</a>
-                <a class="collapse-item" href="register.html">Cetak Laporan Bulanan</a>
-                <a class="collapse-item" href="forgot-password.html">Cetak Laporan Tahunan</a>
+                <a class="collapse-item" href="/cetak/bulanan">Cetak Laporan Bulanan</a>
+                <a class="collapse-item" href="/cetak/tahunan">Cetak Laporan Tahunan</a>
             </div>
         </div>
     </li>
