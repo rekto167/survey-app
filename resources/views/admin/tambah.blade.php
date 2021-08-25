@@ -28,24 +28,20 @@
               <div id="logo_kanan_help" class="form-text">Masukkan logo sebelah kanan(optional).</div>
             </div>
             <div class="mb-3">
-              <label for="emot_1" class="form-label">Emoji Sangat Buruk</label>
+              <label for="emot_1" class="form-label">Emoji Tidak Puas</label>
               <input type="file" class="form-control" id="emot_1" name="emot_1">
             </div>
             <div class="mb-3">
-              <label for="emot_2" class="form-label">Emoji Buruk</label>
+              <label for="emot_2" class="form-label">Emoji Kurang Puas</label>
               <input type="file" class="form-control" id="emot_2" name="emot_2">
             </div>
             <div class="mb-3">
-              <label for="emot_3" class="form-label">Emoji Lumayan</label>
+              <label for="emot_3" class="form-label">Emoji Puas</label>
               <input type="file" class="form-control" id="emot_3" name="emot_3">
             </div>
             <div class="mb-3">
-              <label for="emot_4" class="form-label">Emoji Bagus</label>
+              <label for="emot_4" class="form-label">Emoji Sangat Puas</label>
               <input type="file" class="form-control" id="emot_4" name="emot_4">
-            </div>
-            <div class="mb-3">
-              <label for="emot_5" class="form-label">Emoji Sangat Bagus</label>
-              <input type="file" class="form-control" id="emot_5" name="emot_5">
             </div>
             <div class="mb-3">
               <label for="banner_static" class="form-label">Banner Static</label>
