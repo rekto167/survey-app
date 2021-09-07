@@ -24,6 +24,7 @@ class ReportsController extends Controller
             'emot3' => $request->emot3 ?? [0],
             'emot4' => $request->emot4 ?? [0],
         ]);
+        echo $request->emot1;
         return ['message' => 'data sudah masuk'];
     }
     public function mingguanindex(Report $report){
