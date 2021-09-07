@@ -11,6 +11,10 @@ use Carbon\CarbonPeriod;
 
 class SurveyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function survey(){
         $surveys = Survey::all();
         $personalises = Personalise::all();
@@ -22,8 +26,9 @@ class SurveyController extends Controller
         return view('admin.pengaturan', compact('surveys'));
     }
 
-    public function dashboard()
+    public function dashboard(Request $request)
     {
+
         $reports = Report::all();
         $now = Carbon::now();
         $weekStartDate = $now->startOfWeek()->format('Y-m-d');

@@ -5,6 +5,7 @@ use App\Http\Controllers\PersonalisesController;
 use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\SurveyController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 Route::get('/', [SurveyController::class, 'survey']);
-// Auth::routes();
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
